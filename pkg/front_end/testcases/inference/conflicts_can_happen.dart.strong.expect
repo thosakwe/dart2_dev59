@@ -1,0 +1,50 @@
+library test;
+import self as self;
+import "dart:core" as core;
+
+class I1 extends core::Object {
+  field core::int x = null;
+  synthetic constructor •() → void
+    : super core::Object::•()
+    ;
+}
+class I2 extends self::I1 {
+  field core::int y = null;
+  synthetic constructor •() → void
+    : super self::I1::•()
+    ;
+}
+class A extends core::Object {
+  final field self::I1 a = null;
+  synthetic constructor •() → void
+    : super core::Object::•()
+    ;
+}
+class B extends core::Object {
+  final field self::I2 a = null;
+  synthetic constructor •() → void
+    : super core::Object::•()
+    ;
+}
+class C1 extends core::Object implements self::A, self::B {
+  synthetic constructor •() → void
+    : super core::Object::•()
+    ;
+  get a() → dynamic
+    return null;
+}
+class C2 extends core::Object implements self::B, self::A {
+  synthetic constructor •() → void
+    : super core::Object::•()
+    ;
+  get a() → dynamic
+    return null;
+}
+static const field dynamic #errors = const <dynamic>["pkg/front_end/testcases/inference/conflicts_can_happen.dart:25:79: Error: Can't infer the type of 'a': overridden members must all have the same type.
+Specify the type explicitly.
+  get /*@topType=dynamic*/ /*@error=CantInferTypeDueToInconsistentOverrides*/ a =>
+                                                                              ^", "pkg/front_end/testcases/inference/conflicts_can_happen.dart:31:79: Error: Can't infer the type of 'a': overridden members must all have the same type.
+Specify the type explicitly.
+  get /*@topType=dynamic*/ /*@error=CantInferTypeDueToInconsistentOverrides*/ a =>
+                                                                              ^"]/* from null */;
+static method main() → dynamic {}

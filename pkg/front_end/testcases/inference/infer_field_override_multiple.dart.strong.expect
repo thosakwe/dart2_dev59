@@ -1,0 +1,63 @@
+library test;
+import self as self;
+import "dart:core" as core;
+
+abstract class A extends core::Object {
+  synthetic constructor •() → void
+    : super core::Object::•()
+    ;
+  abstract get x() → core::int;
+}
+abstract class B extends core::Object {
+  synthetic constructor •() → void
+    : super core::Object::•()
+    ;
+  abstract get x() → core::int;
+}
+abstract class C extends core::Object {
+  synthetic constructor •() → void
+    : super core::Object::•()
+    ;
+  abstract get x() → core::num;
+}
+abstract class D extends core::Object {
+  synthetic constructor •() → void
+    : super core::Object::•()
+    ;
+  abstract get x() → core::double;
+}
+class E extends self::A implements self::B {
+  field core::int x = null;
+  synthetic constructor •() → void
+    : super self::A::•()
+    ;
+}
+class F extends self::A implements self::C {
+  field dynamic x = null;
+  synthetic constructor •() → void
+    : super self::A::•()
+    ;
+}
+class G extends self::A implements self::D {
+  field dynamic x = null;
+  synthetic constructor •() → void
+    : super self::A::•()
+    ;
+}
+class H extends self::C implements self::D {
+  field dynamic x = null;
+  synthetic constructor •() → void
+    : super self::C::•()
+    ;
+}
+static const field dynamic #errors = const <dynamic>["pkg/front_end/testcases/inference/infer_field_override_multiple.dart:32:79: Error: Can't infer the type of 'x': overridden members must all have the same type.
+Specify the type explicitly.
+  var /*@topType=dynamic*/ /*@error=CantInferTypeDueToInconsistentOverrides*/ x;
+                                                                              ^", "pkg/front_end/testcases/inference/infer_field_override_multiple.dart:36:79: Error: Can't infer the type of 'x': overridden members must all have the same type.
+Specify the type explicitly.
+  var /*@topType=dynamic*/ /*@error=CantInferTypeDueToInconsistentOverrides*/ x;
+                                                                              ^", "pkg/front_end/testcases/inference/infer_field_override_multiple.dart:40:79: Error: Can't infer the type of 'x': overridden members must all have the same type.
+Specify the type explicitly.
+  var /*@topType=dynamic*/ /*@error=CantInferTypeDueToInconsistentOverrides*/ x;
+                                                                              ^"]/* from null */;
+static method main() → dynamic {}

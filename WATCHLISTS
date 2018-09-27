@@ -1,0 +1,71 @@
+# Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+# for details. All rights reserved. Use of this source code is governed by a
+# BSD-style license that can be found in the LICENSE file.
+
+# Watchlist Rules
+# Refer: http://dev.chromium.org/developers/contributing-code/watchlists
+
+{
+  'WATCHLIST_DEFINITIONS': {
+    'build': {
+      'filepath': (
+        '.*gyp$|'
+        '.*gypi$|'
+        '.*gn$|'
+        '.*gni$|'
+        '^tools/.*py$|'
+        '^build/|'
+        '^tools/buildtools/'
+      )
+    },
+    'front_end': {
+      'filepath': '^pkg/front_end',
+    },
+    'http': {
+      'filepath': '^sdk/lib/_http',
+    },
+    'kernel': {
+      'filepath': '^pkg/kernel',
+    },
+    'messages_review': {
+      'filepath': (
+        '^('
+        'pkg/front_end/messages\\.yaml|'
+        'pkg/compiler/lib/src/diagnostics/messages\\.dart|'
+        'pkg/analyzer/lib/src/analysis_options/error/option_codes\\.dart|'
+        'pkg/analyzer/lib/src/dart/error/hint_codes\\.dart|'
+        'pkg/analyzer/lib/src/dart/error/lint_codes\\.dart|'
+        'pkg/analyzer/lib/src/dart/error/todo_codes\\.dart|'
+        'pkg/analyzer/lib/src/html/error/html_codes\\.dart|'
+        'pkg/dart_messages/lib/shared_messages\\.dart'
+        ')$'
+      )
+    },
+    'mirrors' : {
+      'filepath': '.*mirrors.*',
+    },
+    'observatory': {
+      'filepath': (
+        '^runtime/bin/vmservice/|'
+        '^runtime/bin/vmservice*|'
+        '^runtime/observatory/|'
+        '^runtime/vm/service/|'
+        '^runtime/vm/service*'
+      )
+    },
+    'runtime': {
+      'filepath': '^runtime/',
+    },
+  },
+
+  'WATCHLISTS': {
+    'build': [ 'zra@google.com', 'keertip@google.com' ],
+    'front_end': [ 'dart-fe-team+reviews@google.com' ],
+    'http': [ 'zra@google.com' ],
+    'kernel': [ 'karlklose@google.com', 'jensj@google.com', 'kmillikin@google.com' ],
+    'messages_review': [ 'dart-uxr+reviews@google.com' ],
+    'mirrors' : [ 'rmacnak@google.com' ],
+    'observatory': [ 'rmacnak@google.com' ],
+    'runtime': [ 'vm-dev@dartlang.org' ],
+  },
+}
